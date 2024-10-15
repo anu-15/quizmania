@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Quiz Mania</title>
+</head>
+
+<body>
+    <nav>
+        <h1 class="common-color">QUIZ<span class="common-color heading-span">M</span><span class="heading-span-2">ania</span></h1>
+    </nav>
+
+    <!-- welcome -->
+    <section class="welcome">
+        <div class="welcome-to-quiz">
+            <div class="quiz-heading">
+                <h2>Welcome to <span class="common-color">QUIZ</span><span class="common-color mania">Mania</span></h2>
+
+                <div class="quiz-para-content">
+                    <p class="quiz-para">
+                        Please read all the rules about this quiz before you start.
+                        <a href="#quiz-rule" class="common-color quiz-rules" data-bs-toggle="modal" data-bs-target="#exampleModal">Quiz rules</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="quiz-rules-content" id="quiz-rule">
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Quiz rules</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="quiz-rules-info">
+                                <p class="timer">10-Second Timer</p>
+                                <ul>
+                                    <li>Each question comes with 10-second timer.</li>
+                                    <li>If you don't answer within the time limit, the app will automatically move to the next question.</li>
+                                </ul>
+
+                                <p class="navigate"> Manual Navigation</p>
+                                <ul>
+                                    <li>You can navigate to the next question manually before the timer expires.</li>
+                                    <li>Use the "Next" button to move ahead if you’re ready before the timer runs out.</li>
+                                </ul>
+
+                                <p class="score">Final Score and Performance Message</p>
+                                <ul>
+                                    <li>After all questions are answered, your final score will be displayed.
+                                        <li>Based on your performance, you will receive a personalized message:</li>
+                                        <ul class="ul-score">
+                                            <li>Great job!: If you score <b>above 80%.</b></li>
+                                            <li>Well done!: If you score between <b>60% and 80%.</b></li>
+                                            <li>Keep practicing!: If you score <b>below 60%.</b></li>
+                                    </li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="fullname-input center mb-3">
+                <label for="fullname" class="form-label">Full name</label>
+                <input type="text" class="form-control" id="fullName" aria-describedby="fullname" />
+            </div>
+
+            <div class="quiz-topics">
+                <p class="center">Please select topic to continue</p>
+                <div class="quiz-topic-info center">
+                    <div class="quiz-topic-1">
+                        <div class="form-check">
+                            <div class="form">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="jsTopic" value="js">
+                            <label class="form-check-label" for="jsTopic">
+                                Javascript Basic
+                            </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="angularTopic" value="angular">
+                            <label class="form-check-label" for="angularTopic">
+                                Angular Basic
+                            </label>
+                        </div>
+                    </div>
+                    <div class="quiz-topic-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="reactTopic" value="react">
+                            <label class="form-check-label" for="reactTopic">
+                                React.js Advance
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="flutterTopic" value="flutter">
+                            <label class="form-check-label" for="flutterTopic">
+                                Flutter
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button type="button" class="start-btn btn btn-primary" disabled>Start Quiz</button>
+        </div>
+    </section>
+
+    <section class="quiz-section">
+        <div class="quiz">
+
+            <div id="countdown"></div>
+
+
+            <h2 class="question" id="question">Quiz Question</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a">
+                    <label for="a" id="option_1">Quiz option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b">
+                    <label for="b" id="option_2">Quiz option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c">
+                    <label for="c" id="option_3">Quiz option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d">
+                    <label for="d" id="option_4">Quiz option</label>
+                </li>
+
+            </ul>
+            <button type="submit" class="submit" id="submit">Submit</button>
+            <button type="button" class="next" id="next">Next</button>
+        </div>
+    </section>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
